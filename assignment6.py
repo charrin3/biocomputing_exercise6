@@ -9,7 +9,6 @@ Created on Mon Oct  8 21:47:25 2018
 #code that replicates the functionality of head
 import pandas
 wages=pandas.read_csv("wages.csv")
-
 head10=wages.head(n=10)
 
 #iris.csv file
@@ -20,12 +19,14 @@ row_column=iris.iloc[148:150,3:5]
 print(row_column)
 
 #get the number of observations for each species in the set
+observations=iris['Species'].value_counts()
 
 #get rows with sepal.width > 3.5
 sepalwidth=iris[iris['Sepal.Width']>3.5]
 
 #write the data for the species setosa to a column delimited file
-setosa=iris[iris['Species']=="setosa"]
+setosadf=iris[iris['Species']=="setosa"]
+setosadf.to_csv('setosa.csv')
 
 #calculate the mean, min, max petal length from virginia
 virginica=iris[iris['Species']=="virginica"]
